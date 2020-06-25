@@ -1,0 +1,19 @@
+
+
+<!-- new design -->
+
+<div class="container">
+
+    <form >
+        
+            <label for='otp' style="padding: 10px; margin-top: 18px ; font-size: medium;"><b>Enter OTP here..</b></label>
+        
+        <ng-otp-input   (onInputChange)="onOtpChange($event)"  [config]="config"></ng-otp-input><br><br>
+        <button type="submit" class="btn btn-primary" (click)='accessToken()'  >Submit</button>
+       
+
+       
+    </form>
+   
+
+</div>

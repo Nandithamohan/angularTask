@@ -1,0 +1,68 @@
+<!-- product listing -->
+
+
+
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <p class="navbar-brand" href="#">Products</p>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/login">Login</a></li>
+      
+    </ul>
+    <!-- search -->
+    <form class="navbar-form navbar-left" [formGroup]="form"  (ngSubmit)="searchitem()">
+      <div class="input-group">
+        <input type="text" class="form-control" formControlName="search" id="search"   placeholder="Search" name="search">
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+
+
+
+  </div>
+</nav>
+
+<div class="card">
+<h1>products listing</h1>
+<div *ngFor="let item of output;">
+    <div class="bg-info">
+      
+      <img src="{{item.image}}" class="img-thumbnail " alt="" style="width: 100%;">
+      <h1>{{item.name}}</h1>
+      <p class="price">{{item.price}}</p>
+      <p >{{item.category.name}}</p>
+      <p></p>
+    </div>
+    <div class="px-1 py-1"></div>
+</div>
+
+</div>
+
+
+<hr>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" routerLinkActive="disabled"><a class="page-link" [routerLink]="['/display']"
+            [queryParams]="{ page: 1 ,query:detail.query}" >First Page </a>
+        </li>
+      <li class="page-item" *ngIf="list.previous"><a class="page-link" 
+        [routerLink]="['/display']" [queryParams]="{ page: list.page - 1, query:detail.query }" >{{list.page - 1 }} </a>
+        </li>
+      <li class="page-item active"><span  class="page-link" >{{list.page}}<span class="sr-only">(current)</span></span></li>
+      <li class="page-item" *ngIf="list.next" ><a class="page-link" 
+        [routerLink]="['/display']" [queryParams]="{ page: list.page + 1, query:detail.query }">{{list.page  + 1 }}</a>
+       </li>
+      <li class="page-item"  routerLinkActive="disabled"><a class="page-link" [routerLink]="['/display']"
+            [queryParams]="{ page: list.num_pages ,query:detail.query}" >Last Page</a>
+      </li>
+    </ul>
+
+  </nav>

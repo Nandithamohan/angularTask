@@ -1,0 +1,33 @@
+
+ <!-- new designnnn -->
+
+ <form [formGroup]="form" (ngSubmit)="print()">
+  <div class="imgcontainer">
+    <img src="assets/img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container" style="background-color:rgb(182, 203, 241);">
+    <label for="mobile"><b>Mobile</b></label>
+    <input type="number" class="form-control" formControlName="mobile" id="mobile" placeholder="Enter mobile number" name="mobile" required>
+
+    <div class="row" style="width: 100%;
+    margin: 8px 0;
+    display: inline-block;" > 
+      <div *ngIf='form.get("mobile").touched && form.get("mobile").invalid' style="background-color: #ffffff;"> 
+        <div *ngIf='form.get("mobile").errors.required' style="color: red;font-size: 18px;">**Mobile Number is required  field**</div>
+        <div *ngIf='form.get("mobile").errors.pattern' style="color: red;font-size: 18px;">**Please enter valid Mobile Number**</div>
+      </div>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary" [disabled]='!form.valid'>Submit</button>
+    
+  </div>
+
+  
+</form> 
+
+
+   
+  
